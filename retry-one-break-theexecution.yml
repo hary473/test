@@ -1,0 +1,20 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  StepFunction:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      StateMachineName:
+        Ref: AWS::StackName
+      StateMachineType: STANDARD
+      DefinitionS3Location:
+        Bucket: aerospace.wissen.com
+        Key: retry-one-break-theexecution.json
+      RoleArn: arn:aws:iam::882956824445:role/test-state-machine-1-ge-aviation-poc
+      Tags:
+      - Key: Name
+        Value: Ge-Test
+      - Key: Project
+        Value: Ge-Av
+    Metadata:
+      SamResourceId: StepFunction
