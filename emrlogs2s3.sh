@@ -7,7 +7,7 @@ disk_usage=$(df -h | awk '$NF=="/emr"{print int($5)}')
 if [ $disk_usage -gt $threshold ]
 then
 #Set S3 bucket name
-s3_bucket=s3://med-av-daas-preprod-datasci/user/lh048689/
+s3_bucket=s3://med-av-daas-preprod-datasci/user/lh335896/
 #Set SNS topic ARN and email address to receive notifications
 sns_topic_arn=arn:aws:sns:us-east-1:958262988361:datasci-cluster6-v23-emr-cicd-pipeline-stage-stack-email-notification
 #Copy logs to S3
